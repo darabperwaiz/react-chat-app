@@ -3,6 +3,7 @@ import EmojiPicker from "emoji-picker-react"
 import './chatbox.css'
 import {MentionsInput, Mention} from "react-mentions"
 import mentionInputStyle from "./mentionInputStyle"
+import Chat from "./Chat"
 
 
 const user_list = [{id: 'alan', display:"Alan"}, {id: "bob", display:"Bob"}, {id: 'carol', display:"Carol"},  {id: 'dean', display:"Dean"}, {id: 'elin', display: "Elin"}]
@@ -12,15 +13,19 @@ const users = [
     {
         id: "alan",
         display: 'Alan'
-    }
+    },
+    {
+        id: "bob",
+        display: "Bob"
+    },
 ]
 
 const Chatbox = () => {
-    const [user, setUser] = useState(user_list[0])
+    const [user, setUser] = useState(user_list[0].display)
   
   const randomUser = ()=> {
     const index = Math.floor(Math.random() * user_list.length)
-    setUser(user_list[index])
+    setUser(user_list[index].display)
   }
     const [message, setMessage] = useState('')
     const [chats, setChats] = useState([
@@ -55,27 +60,20 @@ const Chatbox = () => {
 
     const handleKeyDown = (e) => {
         if(e.key === 'Enter') {
+            e.preventDefault()
             submitHandle()
             setMessage('')
         }
         
     }
-    console.log(chats)
+    // console.log(chats)
   return (
     <div className="chatbox">
       <div className="chats">
         {chats.length>0 ? 
         
         chats.map((chat, index)=> (
-            <div className="chat" key={index}>
-            <div className="chat-info">
-                <p>{chat.userName}</p>
-                <span>{chat.createAt}</span>
-            </div>
-            <div className="message-box">
-                {chat.message}
-            </div>
-        </div>
+            <Chat key={index} chat={chat} />
         ))
         
         : null}
@@ -83,9 +81,9 @@ const Chatbox = () => {
         
       </div>
       <div className="input">
-        <form onSubmit={submitHandle}>
+        <form>
             <div className="input-wrapper">
-            <MentionsInput style={mentionInputStyle} onKeyDown={handleKeyDown}  value={message} onChange={(e)=> setMessage(e.target.value)} placeholder="Type Message">
+            <MentionsInput style={mentionInputStyle} singleLine={true} onKeyDown={handleKeyDown}  value={message} onChange={(e)=> setMessage(e.target.value)} placeholder="Type Message">
                 <Mention 
                  data={user_list}
                  markup="@__display__"
@@ -95,7 +93,7 @@ const Chatbox = () => {
             </MentionsInput>
 
             {/* <input type="text" placeholder="Type Message" value={message} onChange={(e)=> setMessage(e.target.value)}/> */}
-                <span onClick={()=> setShowPicker(!showPicker)}><i className="fa-regular fa-face-smile"></i></span>
+            <span onClick={()=> setShowPicker(!showPicker)}><i className="fa-regular fa-face-smile"></i></span>
             </div>
             <div className="emojis">
             {showPicker && (

@@ -19,15 +19,17 @@ export default {
     },
   },
   '&singleLine': {
-    display: 'inline-block',
-    width: 180,
+    display: 'flex',
+    width: '100%',
     highlighter: {
-      padding: 1,
-      border: '2px inset transparent',
+      padding: '13px',
+      width: '100%'
+      // border: '2px inset transparent',
     },
     input: {
-      padding: 1,
-      border: '2px inset',
+      padding: '13px',
+      border: '2px solid',
+      paddingRight:' 50px',
     },
   },
   suggestions: {
