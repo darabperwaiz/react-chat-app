@@ -5,7 +5,8 @@ import {MentionsInput, Mention} from "react-mentions"
 import mentionInputStyle from "./mentionInputStyle"
 
 
-const user_list = ["Alan", "Bob", "Carol", "Dean", "Elin"]
+const user_list = [{id: 'alan', display:"Alan"}, {id: "bob", display:"Bob"}, {id: 'carol', display:"Carol"},  {id: 'dean', display:"Dean"}, {id: 'elin', display: "Elin"}]
+
 
 const users = [
     {
@@ -86,7 +87,7 @@ const Chatbox = () => {
             <div className="input-wrapper">
             <MentionsInput style={mentionInputStyle} onKeyDown={handleKeyDown}  value={message} onChange={(e)=> setMessage(e.target.value)} placeholder="Type Message">
                 <Mention 
-                 data={users}
+                 data={user_list}
                  markup="@__display__"
                  appendSpaceOnAdd= {true}
                 style={{color: 'blue'}}
