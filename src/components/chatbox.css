@@ -1,0 +1,83 @@
+.chatbox {
+    background-color: #eff4f6;
+    width: 100%;
+    /* height: 500px; */
+    padding: 12px;
+    position: relative;
+}
+
+
+.chats {
+    /* background-color: rebeccapurple; */
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+.chat {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.chat-info {
+    display: flex;
+    gap: 13px;
+    align-items: flex-end;
+}
+
+.chat-info > p {
+    font-weight: 500;
+    color: #444;
+}
+
+.chat-info > span {
+    font-size: 12px;
+    font-weight: 500;
+    color: #777;
+}
+
+.message-box {
+    background-color: #fff;
+    display: flex;
+    width:fit-content;
+    max-width: 80%;
+    padding: 10px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.input-wrapper {
+    position: relative;
+    /* background-color: red; */
+}
+
+.input-wrapper input {
+    width: 100%;
+    border: 2px solid;
+    outline: none;
+    padding: 13px;
+    padding-right: 50px;
+    background: none;
+    border-radius: 20px;
+}
+
+.input-wrapper> span {
+    position: absolute;
+    font-size: 25px;
+    right: 15px;
+    top: 5px;
+    cursor: pointer;
+}
+
+.emojis {
+    position: absolute;
+    /* top: 0; */
+    right: 5px;
+    bottom: 12px;
+
+}
