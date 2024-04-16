@@ -84,7 +84,7 @@ const Chatbox = () => {
       <div className="input">
         <form onSubmit={submitHandle}>
             <div className="input-wrapper">
-            <MentionsInput style={mentionInputStyle} onKeyDown={handleKeyDown}  value={message} onChange={(e)=> setMessage(e.target.value)}>
+            <MentionsInput style={mentionInputStyle} onKeyDown={handleKeyDown}  value={message} onChange={(e)=> setMessage(e.target.value)} placeholder="Type Message">
                 <Mention 
                  data={users}
                  markup="@__display__"
